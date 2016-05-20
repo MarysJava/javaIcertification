@@ -1,0 +1,112 @@
+	 ADVANTAGES
+	 
+	  SMALLER DERIVED CLASS DEFINITIONS
+	  EASE OF MODIFICATION TO COMMON PROPERTIES AND BEHAVIOR
+	  EXTENSIBILITY
+	  USE TRIED-AND-TESTED CODE FROM A BASE CLASS
+	  CONCENTRATE ON THE SPECIALIZED BEHAVIOR OF YOUR CLASSES
+	  LOGICAL STRUCTURES AND GROUPING
+	 
+	 Inheritance enables you to reuse code that has already been defined by a class. Inheritance can be implemented by extending a class.
+	  
+	 Default—Members with default access can be accessed in a derived class only if base and derived classes reside in the same package.
+	 protected—Members with protected access are accessible to all the derived classes, regardless of the packages in which the base 
+	 and derived classes are defined.
+	 public—Members with public access are visible to all the other classes.
+	
+	Aren’t inherited by a derived class:
+		private members of the base class.
+		Base class members with default access, if the base class and derived classes exist in separate packages.
+			Constructors of the base class. A derived class can call a base class’s constructors, but it doesn’t inherit them
+
+	All the derived classes—Manager, Programmer, Doctor, and Astronaut—  define additional variables, methods, or both. 
+	Derived classes can also define their own constructors and static methods and variables. 
+	A derived class can also hide or override its base class's members.
+
+	When a derived class defines an instance or class variable with the same name as one defined from its base class, 
+	only these new variables and methods are visible to code using the derived class. 
+	When a derived class defines different code for a method inherited from a base class by defining the method again, 
+	this method is treated as a	special method—an overridden method.
+	You can implement inheritance by using either a concrete class or an abstract class as a base class.
+
+	Java doesn’t allow a class to inherit multiple classes.
+	Because a derived class may inherit different implementations for the same method signature from multiple base classes, 
+	multiple inheritance is not allowed in Java.
+
+
+	ABSTRACT CLASS
+	
+	You can define class Employee as an abstract class, if you think that it’s only a categorization and no real employee exists 
+	in real life—that is, if all employees are really either Programmers or Managers. That’s the essence of an abstract class: it groups
+	the common properties and behavior of its derived classes, but it prevents itself from being instantiated. 
+	Also, an abstract class can force all its derived classes to define their own implementations for a behavior by defining 
+	it as an abstract method (a method without a body).
+
+	It isn’t mandatory for an abstract class to define an abstract method. It may or may not define any abstract methods. 
+	But if an abstract base class defines one or more abstract methods, the class must be marked as abstract and the abstract
+	methods must be implemented in all its derived classes. If a derived class doesn’t implement all the abstract methods 
+	defined by its base class, then it also needs to be	an abstract class.
+
+	- You can never create objects of an abstract class.
+	- A base class can be defined as an abstract class, even if it doesn’t define any abstract methods.
+	- A derived class should implement all the abstract methods of its base class. If it doesn’t, it must be defined as an abstract derived class.
+	- You can use variables of an abstract base class to refer to objects of its derived class
+
+
+	INTERFACES
+
+	Interfaces are abstract classes taken to extremes. An interface can define only	abstract methods and constants. 
+	All the members of an interface are implicitly public.
+
+	Java allows a class to implement multiple interfaces.
+
+	If the signature of a method is changed in an interface, all classes that implement the interface will fail to compile. 
+
+	The method signatures of a method defined in an interface and the classes that implement the interface must match, or the classes won't compile.
+
+	An interface can only define constants. Once it’s assigned, you can’t change the value of a constant. 
+	The variables of an interface are implicitly public, final, and static.
+
+	interface Relocatable {
+		void move(); //Implicit public
+
+	class CEO implements Relocatable {
+		void move() {}  //WILL NOT compile, more restrictive because use default access, and the method move in the interface declaration is public
+	}
+
+	Interface can’t define constructors
+	TRICK: An interface CAN extend multiple interfaces
+	An interface defines barebones methods — methods without any body
+	When an interface extends another interface, it inherits the methods defined in the base interface
+
+
+	-  A class can inherit zero or one class.
+	-  A class uses the keyword extends to inherit a class.
+	-  A class can implement zero or multiple interfaces.
+	-  A class uses the keyword implements to implement an interface.
+	-  An interface can't implement any class.
+	-  An interface can inherit zero or more interfaces.
+	-  TRICK: An interface uses the keyword extends to inherit interfaces.
+	-  An abstract class can implement interfaces.
+	-  An abstract class can extend another abstract class.
+	-  An abstract class can extend a concrete class and vice versa.
+	-  The first concrete class in the hierarchy must supply actual method implementations for ALL abstract methods.
+
+	You can use a reference variable of a base class to refer to an object of its derived class.
+	Similarly, you can use a reference variable of an interface to refer to an object of a
+	class that implements it. It’s interesting to note that these variables can’t access all the
+	variables and methods defined in the derived class or the class that implements	the interface.
+
+	You need to understand that when you refer to an object, the type of the object reference variable and the type of the object 
+	being referred to may be different. But there are rules on how different these can be.
+
+	Objects of derived classes can be referred to using a reference variable of either of the following types:
+	- Its own type — An object of a class HRExecutive can be referred to using an object reference variable of type HRExecutive.
+	
+	- Its base class — If the class HRExecutive inherits the class Employee, an object of the class HRExecutive can be referred 
+		to using a variable of type Employee. If the class Employee inherits the class Person, an object of the class 
+		HRExecutive can also be referred to using a variable of type Person.
+	
+	- Implemented interfaces — If the class HRExecutive implements the interface Interviewer, an object of the class HRExecutive 
+	can be referred using a variable of type Interviewer
+ 

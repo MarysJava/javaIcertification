@@ -1,0 +1,23 @@
+[7.1] Implement inheritance. The need for inheriting classes. How to implement inheritance using classes.
+
+[7.2] Develop code that demonstrates the use
+of polymorphism. How to implement polymorphism with classes and
+interfaces.
+How to define polymorphic or overridden methods.
+
+[7.3] Differentiate between the type of a reference and the type of an object.
+How to determine the valid types of the variables that can be used to refer to an object.
+How to determine the differences in the members of an object, which ones are accessible, and when
+an object is referred to using a variable of an inherited base class or an implemented interface.
+
+[7.4] Determine when casting is necessary. The need for casting.
+How to cast an object to another class or an interface.
+
+[7.5] Use super and this to access objects and constructors.
+How to access variables, methods, and constructors using super and this. 
+What happens if a derived class tries to access variables of a base class when they’re not
+accessible to the derived class.
+
+[7.6] Use abstract classes and interfaces. The role of abstract classes and interfaces in
+implementing polymorphism.
+

@@ -1,0 +1,23 @@
+[3.4] Create if and if-else constructs. How to use if, if-else, if-else-if-else, and nested if constructs.
+The differences between using these if constructs with and without curly braces {}.
+
+[3.5] Use a switch statement. How to use a switch statement by passing the correct type of arguments to the switch statement and
+case and default labels. The change in the code flow when break and return statements are used in the switch
+statement.
+
+[5.1] Create and use while loops. How to use the while loop, including determining when to apply the while loop.
+
+[5.2] Create and use for loops, including the enhanced for loop.
+How to use for and enhanced for loops. The advantages and disadvantages of the for loop and
+enhanced for loop. Scenarios when you may not be able to use the enhanced for loop.
+
+[5.3] Create and use do-while loops. Creation and use of do-while loops. 
+Every dowhile loop executes at least once, even if its condition evaluates to false for the first iteration.
+
+[5.4] Compare loop constructs. The differences and similarities between for, enhanced for, do-while, and while loops. Given
+a scenario or a code snippet, knowing which is the most appropriate loop.
+
+[5.5] Use break and continue statements. The use of break and continue statements. A break statement can be used within loops and
+switch statement. A continue statement can be used only within loops.
+The difference in the code flow when a break or continue statement is used. Identify the right
+scenarios for using break and continue statements.

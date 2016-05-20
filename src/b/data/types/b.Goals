@@ -1,0 +1,27 @@
+[2.2] Differentiate between object reference variables and primitive variables.
+The primitive data types in Java, including scenarios when a particular primitive data type should or can’t
+be used. Similarities and differences between the primitive data types.
+Similarities and differences between primitive and object reference variables.
+
+[2.1] Declare and initialize variables. Declaration and initialization of primitives and
+object reference variables.
+Literal values for primitive and object reference variables.
+
+[3.1] Use Java operators. Use of assignment, arithmetic, relational, and logical
+operators with primitives and object reference variables.
+Valid operands for an operator. Output of an arithmetic expression.
+Determine the equality of two primitives.
+
+[3.2] Use parentheses to override operator precedence.
+How to override the default operator precedence by using parentheses.
+
+
+■ Primitive data types in Java
+■ Literal values of primitive Java data types
+■ Object reference variables in Java
+■ Valid and invalid identifiers
+■ Usage of Java operators
+■ Modification of default operator precedence via parentheses
+
+TIPS: 
+Watch out for questions that use incorrect names for the primitive data types.

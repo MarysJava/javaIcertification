@@ -1,0 +1,15 @@
+Inheritance relationship:
+
+Employee is the superclass
+MyAbstractClass extends Employee
+Manager, HRExecutive and IWantToBreakFreeProgrammer are subclasses of MyAbstractClass
+
+
+Interfaces:
+
+Employee implements BaseIF1
+HRExecutive implements Interviewer
+IWantToBreakFreeProgrammer implements Trainable 
+Manager implements Trainable, Interviewer
+MyAbstractClass don't implement any IF but inherit BaseIF1 from Employee because it extends Employee
+All subclasses (Manager, HRExecutive and IWantToBreakFreeProgrammer) consequently inherit BaseIF1

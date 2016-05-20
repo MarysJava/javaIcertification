@@ -1,0 +1,38 @@
+[8.3] Describe what exceptions are used for in Java. Need for the exception handlers; their advantages
+and disadvantages.
+
+[8.1] Differentiate among checked exceptions, RuntimeExceptions, and Errors.
+Differences and similarities between checked exceptions, RuntimeExceptions, and Errors.
+Differences and similarities in the way these exceptions and errors are handled in code.
+
+[8.2] Create a try-catch block and determine how exceptions alter normal program flow.
+How to create a try-catch-finally block. Understand the flow of code when the enclosed
+code throws an exception or error. How to create nested try-catch-finally blocks.
+
+[8.4] Invoke a method that throws an exception. How to determine the flow of control when an invoked method throws an exception. How to
+apply this to cases when it’s thrown without a try block, and from a try block (with appropriate
+and insufficient exception handlers). The difference in calling methods that throw or don’t throw exceptions.
+
+[8.5] Recognize common exception classes and categories. Common exception classes and categories, and
+how to recognize the code that can throw these exceptions and handle them appropriately.
+
+TIPS:
+Watch out for code that returns a value from the catch block and modifies it in the finally block. If a catch block returns a primitive data
+type, the finally block can’t modify the value being returned by it. If a catch block returns an object, the finally block can modify the value being
+returned by it.
+
+In the exam, watch out for code that tries to use an uninitialized local variable. Because such variables aren’t initialized with even a null value,
+you can’t print their value using the System.out.println method. Such code won’t compile.
+
+ExceptionInInitializerError can be caused by an object of RuntimeException only. It can’t occur as the result of an error or checked
+exception thrown by the static initialization block.
+
+If a method throws a runtime exception, it MAY include the exception in its throws clause
+Finally is always executed event if other method throws a Error or RuntimeException or has a return clause in try or catch block
+Error is not an Exception.
+
+An uninitialized instance variable of type String will be assigned a default value of null. When you pass this variable to System.out.println
+to print it, it will print null. If you try to access any member (variable or method) of this null object, then NullPointerException will be thrown.
+
+The rule that if a base class method doesn’t throw an exception, an overriding	method in the derived class can’t throw a exception applies only to checked 
+exceptions. It doesn’t apply to runtime (unchecked) exceptions or errors. A base or overridden method is free to throw any Error or runtime exception.

@@ -1,0 +1,46 @@
+[1.1] Define the scope of variables. Variables can have multiple scopes: class, instance, method, and local.
+Accessibility of a variable in a given scope.
+
+[2.4] Explain an object’s life cycle. Difference between when an object is declared, initialized,
+accessible, and eligible to be collected by Java’s garbage collection.
+Garbage collection in Java.
+
+[6.1] Create methods with arguments and return values.
+Creation of methods with correct return types and method argument lists.
+
+[6.3] Create an overloaded method. Creation of methods with the same names, but a different
+set of argument lists.
+
+[6.4] Differentiate between default and user-defined constructors.
+A default constructor isn’t the same as a no-argument constructor.
+Java defines a no-argument constructor when no userdefined constructors are created. User-defined constructors
+can be overloaded.
+
+[6.5] Create and overload constructors. Like regular methods, constructors can be overloaded.
+
+[2.3] Read or write to object fields. Object fields can be read and written to by using both
+instance variables and methods.
+Access modifiers determine the variables and methods that can be accessed to read from or write
+to object fields.
+
+[2.5] Call methods on objects. The correct notation to call methods on an object.
+Access modifiers affect the methods that can be called using a reference variable.
+Methods may or may not change the value of instance variables.
+Nonstatic methods can’t be called on uninitialized objects.
+
+[6.7] Apply encapsulation principles to a class.
+Need for and benefits of encapsulation. Definition of classes that correctly implement the encapsulation principle.
+
+[6.8] Determine the effect upon object references and primitive values when they’re passed into methods that change the values.
+Object references and primitives are treated in a different manner when passed into methods.
+Unlike reference variables, the values of primitives are never changed in the calling method when they’re passed to methods.
+
+TIPS:
+Watch out for a count of the total objects created in any given code — 
+the ones that can be accessed using a variable and the ones that can’t be accessed using any variable. 
+The exam may question you on the count of objects created.
+
+When you answer questions on reading values from and writing them to an object field, watch out for the following points:
+- Access modifier of the object field
+- Access modifiers of methods used to read and write value of the object field
+- Constructors that assign values to object fields

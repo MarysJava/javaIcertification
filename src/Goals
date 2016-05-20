@@ -1,0 +1,127 @@
+1) Java Basics 
+
+- Structure of a Java class and source code file
+- Executable Java Applications :
+	Java classes executable x non executable
+ 	Main method
+
+- Packages (using simple names with import statements, using packaged classes without using the import statement,
+Can you recursively import subpackages? / Importing classes from the default package / Static imports)
+
+- Access Modifiers (public, protected, default, private)
+- Non access modifiers (abstract, final, static)
+
+
+2) Data Types 
+
+- Primitive Variables
+	Boolean, Numeric, Character / Confusion with the names of the primitive data types
+
+- Identifiers
+	(Valid x Invalid)
+
+- Object Reference Variables
+- Operators
+	Assignment operators / 	Arithmetic operators /	Relational operators  /	Logical operators /	Operator precedence
+	
+3) Methods and Encapsulation 
+
+- Scope of variables Local variables: / Method parameters / Instance variables / Class variables / Overlapping variable scopes 
+- Object’s life cycle: An object is born / Object is accessible / Object is inaccessible 
+- Create methods with arguments and return values:  Return type of a method / Method parameters / Return statement 
+- Create an overloaded method:  Argument list /  Return type / Access modifier / 
+- Constructors of a class: User-defined constructors / Default constructor / Overloaded constructors 
+- Accessing object fields: What is an object field?  / Read and write object fields / Calling methods on objects 
+- Apply encapsulation principles to a class: Need for encapsulation / Apply encapsulation 
+- Passing objects and primitives to methods: Passing primitives to methods / Passing object references to methods 
+
+
+4) String, StringBuilder, Arrays, and ArrayList  
+- Welcome to the world of the String class: Creating String objects / The class String is immutable / Methods of the class String / String objects
+and operators / Determining equality of Strings
+
+- Mutable strings: StringBuilder / The StringBuilder class is mutable / Creating StringBuilder objects / Methods of class
+StringBuilder / A quick note on the class StringBuffer 
+
+- Arrays: What is an array? Array declaration  Array allocation / Array initialization / Combining array declaration, allocation, and initialization 
+Asymmetrical multidimensional arrays / Arrays of type interface, abstract class, and class Object / Members of an array 
+
+- ArrayList: Creating an ArrayList / Adding elements to an ArrayList / Accessing elements of an ArrayList / Modifying the elements of an ArrayList /
+ Deleting the elements of an ArrayList / Other methods of ArrayList 
+ 
+- Comparing objects for equality: The method equals in the class java.lang.Object / Comparing objects of a user-defined class / Incorrect method
+signature of the equals method / Contract of the equals method 
+
+5) Flow Control 
+
+- The if and if-else constructs
+The if construct and its flavors / Missing else blocks / Implications of the presence and absence of {} in
+if-else constructs / Appropriate versus inappropriate expressions passed as arguments to an if statement /
+Nested if constructs 
+
+- The switch statement 
+Create and use a switch statement / Comparing a switch statement with multiple if-else constructs / Arguments passed
+to a switch statement / Values passed to the label case of a switch statement / Use of break statements within
+a switch statement 
+
+- The for loop 
+Initialization block / Termination condition / The update clause / Nested for loop 
+
+- The enhanced for loop 
+Limitations of the enhanced for loop / Nested enhanced for loop 
+
+- The while and do-while loops 
+The while loop / The do-while loop / While and do-while block, expression, and nesting rules 
+
+- Comparing loop constructs 
+Comparing do-while and while loops /  Comparing for and enhanced for loops / Comparing for and while loops 
+
+- Loop statements: break and continue 
+The break statement / The continue statement / Labeled statements 
+
+
+6) Working with inheritance 
+ 
+- Inheritance with classes 
+Need to inherit classes / A derived class contains within it an  object of its base class / Which base class members are inherited
+by a derived class? / Which base class members aren’t inherited by a derived class? / Derived classes can define
+additional properties and behavior / Abstract base class versus concrete base class 
+
+- Use interfaces 304
+Properties of members of an Interface / Why a class can’t extend multiple classes / Implementing multiple interfaces
+
+- Reference variable and object types 
+Using a variable of the derived class to access its own object / Using a variable of the base class to access an object of
+a derived class / Using a variable of an implemented interface to access a derived class object / The need for
+accessing an object using the variables of its base class or implemented interfaces 
+
+- Casting 
+How to cast a variable to another type / Need for casting 
+
+- Use this and super to access objects and constructors  Object reference: this / Object reference: super 
+
+- Polymorphism 
+Polymorphism with classes / Binding of variables and methods at compile time and runtime 
+Polymorphism with interfaces 
+
+
+7) Exception handling  
+- Exceptions in Java 
+A taste of exceptions / Why handle exceptions separately? / Do exceptions offer any other benefits? 
+
+- What happens when an exception is thrown? 
+Creating try-catch-finally blocks / Will a finally block execute even if the catch block defines a return statement? 
+What happens if both a catch and a finally block define
+return statements? / What happens if a finally block modifies the value returned from a catch block? / Does the order of the
+exceptions caught in the catch blocks matter? / Can I rethrow an exception or the error I catch? / Can I declare my methods
+to throw a checked exception, instead of handling it?  I can create nested loops, so can I create nested try-catch blocks too? 
+
+- Categories of exceptions 
+Identifying exception categories / Checked exceptions / Runtime exceptions (also known as unchecked exceptions) / Errors 
+
+- Common exception classes and categories 
+ArrayIndexOutOfBoundsException and IndexOutOfBoundsException /
+ClassCastException / IllegalArgumentException / IllegalStateException 
+NullPointerException / NumberFormatException 
+ExceptionInInitializerError / StackOverflowError 
+NoClassDefFoundError / OutOfMemoryError 

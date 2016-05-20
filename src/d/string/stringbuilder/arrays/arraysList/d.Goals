@@ -1,0 +1,25 @@
+[2.7] Create and manipulate strings. How to create String objects using the assignment
+and new operators. Use of the operators =, +=, !=, and == with String objects. Literal value for class String.
+Use of methods from class String. Immutable String values. All of the String methods manipulate
+and return a new String object.
+
+[3.3] Test equality between strings and other objects using == and equals().
+How to determine the equality of two String objects. Differences between using operator == and method
+equals() to determine equality of String objects.
+
+[2.6] Manipulate data using the StringBuilder class and its methods.
+How to create StringBuilder classes and how to use their commonly used methods.
+Difference between StringBuilder and String classes. Difference between methods with similar
+names defined in both of these classes. 
+
+[4.1] Declare, instantiate, initialize, and use a one-dimensional array.
+How to declare, instantiate, and initialize one dimensional
+arrays using single and multiple steps. The do’s and don’ts of each of these steps.
+
+[4.2] Declare, instantiate, initialize, and use a multidimensional array.
+How to declare, instantiate, and initialize multidimensional
+arrays using single and multiple steps, with do’s and don’ts for each of these steps.
+Accessing elements in asymmetric multidimensional
+
+[4.3] Declare and use an ArrayList. How to declare, create, and use an ArrayList. Advantages of using an ArrayList over arrays.
+Use of methods that add, modify, and delete elements of an ArrayList.
