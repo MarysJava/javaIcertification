@@ -1,0 +1,157 @@
+app.post('/v001/updateIOTPCredentials', function(req,res)
+{
+	var doc = JSON.parse(JSON.stringify(req.body));
+	var iotpApiKey = doc['apiKey'];
+	var iotpAuthToken = doc['authToken'];
+	var iotpOrgID = doc['orgID'];
+	var iotpHttpHost = iotpOrgID + ".staging.internetofthings.ibmcloud.com";
+	var ioteTenant = doc['tenantID'];
+	var oldIotpOrgId = '';
+	var servicesBound = false;
+	var urlOrgId = 'https://' + iotpOrgID + '.staging.internetofthings.ibmcloud.com/api/v0002';
+	var iotpDocIn = {
+		"config": {
+			"extensions": {
+			"iot4e": {
+				"apiEndpoint": "https://iotforelectronicstilex.mybluemix.net",
+				"username": "5725c30a-cc1a-4c5d-80ad-d8b0186ca742",
+				"password": "99197384-95cf-4bc3-a440-2f58e8e04146",
+				"tenantID":"3815538e-7509-44f7-b334-29e4ac4786ac"
+				}
+			} 
+		}
+	};
+		  
+	if (iotpApiKey =='undefined' || iotpApiKey=='' || iotpAuthToken =='undefined' || iotpAuthToken=='' || iotpOrgID =='undefined' || iotpOrgID=='')
+	{
+		res.status(400).send('Services can not be bound. Missing parameter(s)');
+	}
+	else
+	{
+	   //dbbAdmin.find({selector:{instanceID:ioteTenant, apiKey:ioteApiKey, authToken:ioteAuthToken}}, function(er, result)
+	   
+	    //Validation #1 - It should be possible to connect more than one Electronics to the same platform? No.
+	    dbAdmin.find({selector:{iotpOrgId:iotpOrgID}}, function(erBinding, resultBinding)
+		{
+			if (erBinding)
+			{
+				res.sendStatus(erBinding.statusCode);
+				throw er;
+			}
+			if (resultBinding.docs.length==0)
+			{
+				console.log("TenantID:  " + ioteTenant);
+				dbAdmin.find({selector:{instanceID:ioteTenant}}, function(er, result)
+				{
+				  if (er)
+				  {
+					res.sendStatus(er.statusCode);
+					throw er;
+				  }
+				  if (result.docs.length==1)
+				  {
+					oldIotpOrgId = result.docs[0].iotpOrgId;
+					result.docs[0].iotpOrgId = iotpOrgID;
+					result.docs[0].iotpApiKey = iotpApiKey;
+					result.docs[0].iotpAuthToken = iotpAuthToken;
+					result.docs[0].iotpHttpHost = iotpHttpHost;
+					var docCred = JSON.parse(JSON.stringify(result.docs[0]));
+					dbAdmin.insert(docCred, function(err, data)
+					{
+					   if(err)
+					   {
+						   res.status(err.statusCode).send('Error inserting into cloudant.');
+					   }
+					   else
+					   {
+						   //Deleted docs document addition code.
+							var deletedDocCount = {docs:[]};
+							deletedDocCount.docs.push({ org:      req.body.orgID,
+														count:		0,
+														deleted:    'count'
+													   });
+							console.log('deletedDocCount: ' + JSON.stringify(deletedDocCount));
+							var docToInsert = deletedDocCount.docs[0];
+							db.insert(docToInsert, function(err, data)
+							{
+								if(err)
+								{
+									  //Logmet
+									  logs.recordLog('GET /deletedDocs  ==> Error:', err);
+									  console.log('GET /deletedDocs  ==> Error:', err);
+									res.status(err.statusCode).send('Error inserting into cloudant.');
+								}
+								else
+								{
+								  //Logmet
+								  logs.recordLog("GET /deletedDocs  ==> Inserting deletedDocs document in Cloudant");
+								  console.log("GET /deletedDocs  ==> Inserting deletedDocs document in Cloudant");
+								  console.log('GET /deletedDocs  ==> id       = ', data.id);
+								  console.log('GET /deletedDocs  ==> revision = ', data.rev);
+								  
+								  //request({
+									//url: 'https://rwg59p.hou02-1.test.internetofthings.ibmcloud.com/api/v0002',
+								  //url: urlOrgId,
+								  //json: iotpDocIn,
+								  //method: 'GET', 
+								  //headers: {
+								  //			'Content-Type': 'application/json',
+								  //				'apiKey':iotpApiKey,
+								  //				'apiToken':iotpAuthToken										
+								  //	},
+								  //auth: {username:iotpApiKey, password:iotpAuthToken}
+
+								  //}, function(error, response, body){
+								  //	if(error) {
+								  //	console.log('ERROR: ' + response.statusCode);
+								  //		console.log('URL: ' + urlOrgId);
+								  //		console.log('BODY: ' + error);
+								  //		res.status(408).send('There is no IoT Platform instance with these credentials.');
+								  //		return;
+								  //	} else {
+								  //		console.log('Response:' + response.statusCode);
+								  //}});						
+								
+									//Validation #2 - It should be possible to connect more than one platform to the same Electronics? No.
+									if (oldIotpOrgId === iotpOrgID)
+									{
+										console.log('***** 201 ******');
+										res.status(201).send('IoTP Credentials bound successfully.');		
+									}
+									else
+									{
+										if (oldIotpOrgId === '')
+										{
+											console.log('***** 201 ******');
+											res.status(201).send('IoTP Credentials bound successfully.');		
+										}
+										else
+										{
+											console.log('***** 202 ******');
+											res.status(202).send('There is already a Platform service associated to this Electronics service. Are you sure you want to disconnect/overwrite the previous Platform service with this one?');												
+										}
+									}								  
+								}
+							});				   						
+						}
+					});
+				  }
+				  else
+				  {
+					console.log("There is no IoT4E Service with these credentials.");
+					res.status(201).send('There is no IoT4E Service with these credentials.');
+				  }
+				});				
+			}			   
+			else
+			{
+				res.status(409).send('Services can not be bound. IoT Platform instance already bound to another IoT for Electronics instance.');				
+			}
+		});
+		
+	}
+		//console.log("Update iot platform credentials called!!!!!!!!");
+	//console.log('Key ' + ioteApiKey);
+	//console.log('Token ' + ioteAuthToken);
+	//console.log('Tenant ' + ioteTenant);
+});
