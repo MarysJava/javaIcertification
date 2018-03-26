@@ -16,7 +16,7 @@ public class FreudExplainsString {
 			String s4 = "Mary";
 			System.out.println(s3==s4); //Compare two Strings created in String pool
 			
-			System.out.println(s3==s1); //Compare an object with a string created in the poll
+			System.out.println(s3==s1); //Compare an object with a string created in the pool
 			
 			// BUT if I do this
 			s1="Mary";

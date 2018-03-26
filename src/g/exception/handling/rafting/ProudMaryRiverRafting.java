@@ -197,7 +197,9 @@ public class ProudMaryRiverRafting extends RiverRaftingBase implements RollingIn
 			return returnVal;
 		} finally {
 			returnVal.append("10");
+			//returnVal = new StringBuilder("40");
 			System.out.println("Return value is now :" + returnVal);
+			//return returnVal;
 			//In this case returns 1010 because when the finally block executes, it can access the value of the OBJECT 
 			//referred to by the variable returnVal and can modify it.
 			//Primitives are passed by value and objects are passed by reference.

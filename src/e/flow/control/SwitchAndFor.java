@@ -172,9 +172,12 @@ public class SwitchAndFor {
 		 * at the end of all the statements defined in the for block.
 		 */
 		
+		System.out.println("Line");
 		String line = "ab";
 		for (int i=0; i < line.length(); ++i, printMethod())
 			System.out.println(line.charAt(i));
+		
+		System.out.println("Line end\n");
 		
 		//for (int i=0;; ++i) { System.out.println("AAA");} //Compile but is a INFINTE LOOP because there's not a condition clause
 		

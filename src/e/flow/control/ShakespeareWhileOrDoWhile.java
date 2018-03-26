@@ -59,8 +59,9 @@ public class ShakespeareWhileOrDoWhile {
 		do {
 			System.out.println(num);
 			if (num % 7 == 0) divisibleBy7 = true;
-			num--;
+			num--;	
 		} while (divisibleBy7 == false);  //DON'T FORGET THIS ;
+		System.out.println("END\n");
 		// Executes at least once, even if the condition IS NOT evaluated to true because the condition 
 		// is evaluated at the end of execution of the loop body.
 		
